@@ -56,7 +56,9 @@ html, body {
     }
 
     to {
-        background-position: calc(var(--bg-scale)) calc(var(--bg-scale) * 2);
+        background-position:
+            calc(var(--bg-scale)) calc(var(--bg-scale) * 2),
+            calc(var(--bg-scale) * 2) calc(var(--bg-scale) * -1);
     }
 }
 
@@ -72,9 +74,10 @@ body {
 
     align-items: center;
 
-    background-image: url('./assets/background1.png');
+    background-image: url('./assets/background1.png'), url('./assets/background2.png');
     image-rendering: pixelated;
-    background-size: var(--bg-scale);
+    background-attachment: fixed, fixed;
+    background-size: var(--bg-scale), var(--bg-scale);
 }
 
 @media screen and (prefers-reduced-motion: no-preference) {
