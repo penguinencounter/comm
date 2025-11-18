@@ -13,7 +13,7 @@
 :root {
     --font: "Ubuntu", sans-serif;
     --background1: #100820;
-    --background2: #20104080;
+    --background2: #201040d0;
     --text: #eeeeee;
 
     --content-width: 42rem;
@@ -33,7 +33,9 @@
     --blueprint-angle: 10deg;
     --blueprint-angle2: calc(var(--blueprint-angle) + 90deg);
 
-    --blueprint-stop: calc(var(--blueprint-repeat-at) - var(--blueprint-stripe-width))
+    --blueprint-stop: calc(var(--blueprint-repeat-at) - var(--blueprint-stripe-width));
+
+    --bg-scale: 64px;
 }
 
 * {
@@ -48,6 +50,16 @@ html, body {
     margin: 0;
 }
 
+@keyframes animate-bg {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: calc(var(--bg-scale)) calc(var(--bg-scale) * 2);
+    }
+}
+
 body {
     transition: padding 0.25s ease-in-out;
 
@@ -59,6 +71,16 @@ body {
     padding: 3rem 0;
 
     align-items: center;
+
+    background-image: url('./assets/background1.png');
+    image-rendering: pixelated;
+    background-size: var(--bg-scale);
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+    body {
+        animation: animate-bg 10s linear infinite;
+    }
 }
 
 main {
