@@ -40,6 +40,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-padding-top: 1.5rem;
+}
+
 html, body {
     margin: 0;
 }
@@ -130,6 +134,35 @@ a.card:hover {
 
     border: 2px solid #ffffff20;
     padding: calc(1rem - 2px);
+}
+
+.contents {
+    border: 2px solid #ffffff20;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    & a {
+        color: unset;
+        display: block;
+        padding: 0.5rem calc(1rem - 2px);
+        background-color: #ffffff20;
+
+        &:hover, &:focus {
+            background-color: #ffffff40;
+        }
+    }
+
+    & > ul {
+        padding: 0;
+        margin: 0;
+    }
+    & li.-virtual {
+        display: block;
+        padding: 0.5rem calc(1rem - 2px);
+    }
+
+    & h1, h2, h3, h4 {
+        margin: 0;
+    }
 }
 
 .gallery {
