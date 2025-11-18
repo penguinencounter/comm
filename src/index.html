@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PenguinEncounter's Portfolio</title>
+    <script src="index.js" type="module"></script>
+</head>
+<body>
+    <main>
+        <h1>PenguinEncounter's Portfolio</h1>
+
+        <p>
+            We make Minecraft mods, as well as content (mostly scripts) for Figura.
+            For example...
+        </p>
+        <section class="gallery">
+            <a href="#comms" class="card card-minor">
+                <p>Skip to the part where you can pay me money</p>
+            </a>
+        </section>
+
+        <h2>Figura Addons</h2>
+        <section class="gallery">
+            <a class="card card-4" href="https://modrinth.com/mod/figura-badge-backport-tool">
+                <h4>Figura Badge Backport Tool</h4>
+                <p>
+                    The first of the backport collection,
+                    porting the <code>/figura badge</code> command from 0.1.6.
+                    Also my first venture into wrangling lots of platforms and
+                    Minecraft versions in a single JAR.
+                </p>
+            </a>
+            <a class="card card-1" href="https://modrinth.com/mod/figura-v5-support">
+                <h4>Figura v5 support</h4>
+                <p>
+                    Implements support for Blockbench model files created on
+                    Blockbench version 5.0.0 or later. (Figura fails to load these files by default.)
+                    Utilized 
+                </p>
+            </a>
+            <a class="card card-minor" href="https://github.com/penguinencounter/fsb-carpet-addon">
+                <h4>fsb-carpet-addon</h4>
+                <p>
+                    A tiny FSB plugin for (upcoming) 0.1.6 that makes it easier to use fake players
+                    with FSB. Not endorsed by developers or anything.
+                </p>
+            </a>
+        </section>
+
+        <h2>Open Source Figura Contributions (PRs)</h2>
+        <h3>Features</h3>
+        <section class="gallery">
+            <a href="https://github.com/FiguraMC/Figura/pull/254" class="card card-minor">
+                <h4>Blockbench project file parser rework (5.0 support)</h4>
+                <p>
+                    The code that drives development of the aformentioned addon mod.
+                    Teaches Figura to load the new model format, and adds a few QOL changes
+                    along the way, like <em>much</em> better keyframe errors.
+                </p>
+            </a>
+            <a href="https://github.com/FiguraMC/Figura/pull/254" class="card card-minor">
+                <h4>Expanded Texture APIs</h4>
+                <p>
+                    Lets users do cool things with textures that were annoying and expensive before.
+                    Pallete swaps, scaling algorithms, mathematical operations, patterns, line drawing,
+                    and the powerful multitool <code>:blit()</code>.
+                </p>
+            </a>
+            <a href="https://github.com/FiguraMC/Figura/pull/411" class="card card-minor">
+                <h4>Deny uploading errored avatars by default</h4>
+                <p>
+                    One of a few QOL changes to make it easier for new users to avoid
+                    tripping over themselves and help them solve issues before publishing
+                    their avatar to everyone else.
+                </p>
+            </a>
+        </section>
+
+        <h3>Performance & Fixes</h3>
+        <section class="gallery">
+            <a href="https://github.com/FiguraMC/Figura/pull/254" class="card card-minor">
+                <h4>Expanded Texture APIs</h4>
+                <p>
+                    <em>Merged into the next Figura release.</em><br>
+                    Lets users do cool things with textures that were annoying and expensive before.
+                    Pallete swaps, scaling algorithms, mathematical operations, patterns, line drawing,
+                    and the powerful multitool <code>:blit()</code>.
+                </p>
+            </a>
+        </section>
+
+        <h1 id="comms">Commissions</h1>
+        <p>Under construction, y'know?</p>
+        <nav class="cards">
+            <a class="card card-1">
+                <h2>Figura Addons</h2>
+            </a>
+            <a class="card card-2">
+                <h2>Figura Scripts</h2>
+            </a>
+            <a class="card card-3">
+                <h2>Other Mods</h2>
+            </a>
+            <a class="card card-4">
+                <h2>Attestation Tools</h2>
+            </a>
+        </nav>
+    </main>
+</body>
+</html>
