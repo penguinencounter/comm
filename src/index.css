@@ -1,240 +1,55 @@
-@font-face {
-    font-family: "Ubuntu";
-    src: url("assets/Ubuntu-Regular.ttf") format("truetype");
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: "Ubuntu";
-    src: url("assets/Ubuntu-Bold.ttf") format("truetype");
-    font-weight: bold;
-}
-
 :root {
-    --font: "Ubuntu", sans-serif;
     --background1: #100820;
     --background2: #201040d0;
-    --text: #eeeeee;
 
     --content-width: 42rem;
     --card-width: 16rem;
-
-    --card-1-color: #451b92;
-    --card-1-accent: #7d25f060;
-    --card-2-color: #0b7a46;
-    --card-2-accent: #18bd7040;
-    --card-3-color: #222997;
-    --card-3-accent: #317fc940;
-    --card-4-color: #101010;
-    --card-4-accent: #80808020;
-
-    --blueprint-repeat-at: 36px;
-    --blueprint-stripe-width: 3px;
-    --blueprint-angle: 10deg;
-    --blueprint-angle2: calc(var(--blueprint-angle) + 90deg);
-
-    --blueprint-stop: calc(var(--blueprint-repeat-at) - var(--blueprint-stripe-width));
-
-    --bg-scale: 64px;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-padding-top: 1.5rem;
-}
-
-html, body {
-    margin: 0;
-}
-
-@keyframes animate-bg {
-    from {
-        background-position: 0 0;
-    }
-
-    to {
-        background-position:
-            calc(var(--bg-scale)) calc(var(--bg-scale) * 2),
-            calc(var(--bg-scale) * 2) calc(var(--bg-scale) * -1);
-    }
-}
-
-body {
-    transition: padding 0.25s ease-in-out;
-
-    background-color: var(--background1);
-    color: var(--text);
-    font-family: var(--font);
-    display: flex;
-    flex-flow: column nowrap;
-    padding: 3rem 0;
-
-    align-items: center;
-
-    background-image: url('./assets/background1.png'), url('./assets/background2.png');
-    image-rendering: pixelated;
-    background-attachment: fixed, fixed;
-    background-size: var(--bg-scale), var(--bg-scale);
-}
-
-@media screen and (prefers-reduced-motion: no-preference) {
-    body {
-        animation: animate-bg 10s linear infinite;
-    }
-}
-
-main {
-    transition: border-radius 0.25s ease-in-out, max-width 0.25s ease-in-out;
-
-    width: 100%;
-    max-width: var(--content-width);
-
-    background-color: var(--background2);
-
-    padding: 1rem;
-    border-radius: 1rem;
 }
 
 @media screen and (max-width: 48rem) {
     body {
         padding: 0;
+        gap: 0;
     }
     main {
         border-radius: 0;
+    }
+    body .standalone-nav a {
+        border-radius: 0;
+    }
+    .width-contrained {
         max-width: 100%;
     }
 }
 
-h1, h2, h3, h4 {
-    margin: 1rem 0;
-}
+.cards.comm-cards {
+    & > .card {
+        padding: 0;
+        overflow: hidden;
 
-h1, h2 {
-    font-weight: bold;
-}
+        /* by default... */
+        & > h2 {
+            padding: 0 1rem;
+            margin-bottom: 0.5rem;
+        }
 
-a.card {
-    text-decoration: none;
-    color: unset;
-}
+        &.-no-stripe > h2 {
+            margin-bottom: 1rem;
+        }
 
-a.card:hover {
-    transform: scale(1.025);
-}
-
-.card {
-    transition: transform 0.125s ease-in-out;
-
-    padding: 1rem;
-    border-radius: 0.5rem;
-
-    position: relative;
-    min-height: 10rem;
-    display: flex;
-    flex-flow: column;
-    justify-content: flex-end;
-
-    background-color: var(--card-default);
-
-    & p {
-        margin: 0;
-    }
-
-    & .-bg {
-        position: absolute;
-        inset: 0;
-        z-index: -1;
-    }
-
-    & h1, h2, h3, h4 {
-        margin: 0;
-    }
-}
-
-.card.card-minor {
-    min-height: unset;
-
-    border: 2px solid #ffffff20;
-    padding: calc(1rem - 2px);
-}
-
-.contents {
-    border: 2px solid #ffffff20;
-    border-radius: 0.5rem;
-    overflow: hidden;
-    & a {
-        color: unset;
-        display: block;
-        padding: 0.5rem calc(1rem - 2px);
-        background-color: #ffffff20;
-
-        &:hover, &:focus {
-            background-color: #ffffff40;
+        /* the stripe */
+        & > .-stripe {
+            padding: 0.5rem 1rem;
+            background-color: #202020;
+            font-weight: bold;
         }
     }
 
-    & > ul {
-        padding: 0;
-        margin: 0;
-    }
-    & li.-virtual {
-        display: block;
-        padding: 0.5rem calc(1rem - 2px);
+    .-stripe.-good {
+        background-color: var(--positive-indicator);
     }
 
-    & h1, h2, h3, h4 {
-        margin: 0;
+    .-stripe.-bad {
+        background-color: var(--negative-indicator);
     }
-}
-
-.gallery {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
-    margin: 1rem 0;
-}
-
-.cards {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: stretch;
-    gap: 1rem;
-    margin: 1rem 0 0 0;
-}
-
-.cards .card {
-    flex-basis: var(--card-width);
-    flex-grow: 1;
-}
-
-.card-1 {
-    background-color: var(--card-1-color);
-    background-image: 
-        repeating-radial-gradient(circle at 0 0, transparent 0, transparent var(--blueprint-stop), var(--card-1-accent) var(--blueprint-stop), var(--card-1-accent) var(--blueprint-repeat-at)),
-        repeating-radial-gradient(circle at 0 100%, transparent 0, transparent var(--blueprint-stop), var(--card-1-accent) var(--blueprint-stop), var(--card-1-accent) var(--blueprint-repeat-at));
-}
-
-.card-2 {
-    background-color: var(--card-2-color);
-    background-image: 
-        repeating-radial-gradient(circle at 0 0, transparent 0, transparent var(--blueprint-stop), var(--card-2-accent) var(--blueprint-stop), var(--card-2-accent) var(--blueprint-repeat-at)),
-        repeating-linear-gradient(var(--blueprint-angle2), transparent 0, transparent var(--blueprint-stop), var(--card-2-accent) var(--blueprint-stop), var(--card-2-accent) var(--blueprint-repeat-at));
-}
-
-.card-3 {
-    background-color: var(--card-3-color);
-    background-image: 
-        repeating-radial-gradient(circle at 0 100%, transparent 0, transparent var(--blueprint-stop), var(--card-3-accent) var(--blueprint-stop), var(--card-3-accent) var(--blueprint-repeat-at)),
-        repeating-linear-gradient(var(--blueprint-angle), transparent 0, transparent var(--blueprint-stop), var(--card-3-accent) var(--blueprint-stop), var(--card-3-accent) var(--blueprint-repeat-at));
-
-}
-
-.card-4 {
-    background-color: var(--card-4-color);
-    background-image: 
-        repeating-linear-gradient(var(--blueprint-angle2), transparent 0, transparent var(--blueprint-stop), var(--card-4-accent) var(--blueprint-stop), var(--card-4-accent) var(--blueprint-repeat-at)),
-        repeating-linear-gradient(var(--blueprint-angle), transparent 0, transparent var(--blueprint-stop), var(--card-4-accent) var(--blueprint-stop), var(--card-4-accent) var(--blueprint-repeat-at));
 }

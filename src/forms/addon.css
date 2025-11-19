@@ -1,0 +1,23 @@
+:root {
+    --background1: #080818;
+    --background2: #101040d0;
+    
+    --content-width: 56rem;
+    --card-width: 20rem;
+}
+
+@media screen and (max-width: 56rem) {
+    body {
+        padding: 0;
+        gap: 0;
+    }
+    main {
+        border-radius: 0;
+    }
+    body .standalone-nav a {
+        border-radius: 0;
+    }
+    .width-contrained {
+        max-width: 100%;
+    }
+}
