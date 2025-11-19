@@ -186,6 +186,8 @@ a.card:hover {
     border-radius: 0.5rem;
     overflow: hidden;
     & a {
+        transition: background-color 0.125s ease-in-out;
+        
         color: unset;
         display: block;
         padding: 0.5rem calc(1rem - 2px);
