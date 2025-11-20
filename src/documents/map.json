@@ -1,5 +1,5 @@
 {
-    "policy_general": {
+    "general": {
         "latest": "0",
         "history": {
             "0": "policy/general.md"

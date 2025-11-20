@@ -4,7 +4,9 @@ function main() {
     /*
     override scrolling behaviour for #anchors
     */
-    document.querySelectorAll("a[href^=\"#\"]").forEach((anchor: HTMLAnchorElement) => {
+    document.querySelectorAll("a[href^=\"#\"]").forEach((anchor: Element) => {
+        if (!(anchor instanceof HTMLAnchorElement))
+            throw new Error("the dom lied help");
         anchor.addEventListener("click", e => {
             e.preventDefault();
             history.pushState(null, "", anchor.href)

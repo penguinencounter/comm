@@ -51,6 +51,10 @@
     --negative-indicator: #860900;
 }
 
+.hidden {
+    display: none !important;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -302,8 +306,18 @@ section.tool {
 }
 
 .callout {
+    --callout-color: #ffffff40;
     padding: calc(1rem - 2px);
+    border: 2px solid var(--callout-color);
+    border-bottom-width: 8px;
     margin: 1rem 0;
+
+    &.-warning {
+        --callout-color: #ffff0080;
+    }
+    &.-error {
+        --callout-color: #ff000080;
+    }
 }
 
 input {
@@ -323,4 +337,8 @@ input {
     &[type="submit"], &[type="button"] {
         font-weight: bold;
     }
+}
+
+code {
+    font-size: 1rem;
 }
